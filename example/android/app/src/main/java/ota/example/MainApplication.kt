@@ -1,6 +1,7 @@
 package ota.example
 
 import android.app.Application
+import android.util.Log
 import com.facebook.react.PackageList
 import com.facebook.react.ReactApplication
 import com.facebook.react.ReactHost
@@ -11,6 +12,7 @@ import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.react.soloader.OpenSourceMergedSoMapping
 import com.facebook.soloader.SoLoader
+import com.ota.Ota
 
 class MainApplication : Application(), ReactApplication {
 
@@ -23,6 +25,22 @@ class MainApplication : Application(), ReactApplication {
             }
 
         override fun getJSMainModuleName(): String = "index"
+
+        override fun getJSBundleFile(): String {
+          val path = Ota.getJSBundleFile(applicationContext)
+
+          Log.i("rnota-path", path)
+
+          return path
+        }
+
+        override fun getBundleAssetName(): String? {
+          val assetName =  super.getBundleAssetName()
+
+          Log.i("rnota-assetname", assetName.toString())
+
+          return assetName
+        }
 
         override fun getUseDeveloperSupport(): Boolean = BuildConfig.DEBUG
 

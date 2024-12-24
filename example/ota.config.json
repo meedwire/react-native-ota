@@ -1,0 +1,27 @@
+{
+  "enabled": false,
+  "url": "http://10.0.0.127:3000/ota-updates",
+  "environments": {
+    "development": {
+      "enabled": true,
+      "strategy": "manual",
+      "otaKey": "d02e93c0-ef3c-4587-a07d-e7a66d674ca0",
+      "checkAutomatically": "WIFI_ONLY",
+      "url": ""
+    },
+    "production": {
+      "enabled": true,
+      "strategy": "on-app-start",
+      "otaKey": "asdkjaskjdhjuiyansmdbamnsbdugnbv",
+      "checkAutomatically": "WIFI_ONLY",
+      "url": ""
+    },
+    "staging": {
+      "enabled": true,
+      "strategy": "on-app-state-change",
+      "otaKey": "asdkjaskjdhjuiyansmdbamnsbdugnbv",
+      "checkAutomatically": "WIFI_ONLY",
+      "url": ""
+    }
+  }
+}
